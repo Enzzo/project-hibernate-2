@@ -1,11 +1,14 @@
 package ru.javarush.vasilev;
 
+import ru.javarush.vasilev.Entity.Rating;
+
 /**
  * Hello world!
  *
  */
 public class App{
     public static void main( String[] args ){
-        System.out.println( "Hello World!" );
+        Rating r = Rating.nc17;
+        System.out.println(r.ordinal());
     }
 }

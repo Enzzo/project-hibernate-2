@@ -8,9 +8,9 @@ import java.sql.Timestamp;
 @Table(name = "country", schema = "movie")
 public class Country {
     @Id
-    @Column(name = "counry_id", nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer country_id;
+    @Column(name = "counry_id", nullable = false)
+    private Integer id;
 
     @Column(name = "country", length = 50, nullable = false)
     private String country;
@@ -19,11 +19,11 @@ public class Country {
     private Timestamp last_update;
 
     public Integer getCountry_id() {
-        return country_id;
+        return id;
     }
 
-    public void setCountry_id(Integer country_id) {
-        this.country_id = country_id;
+    public void setCountry_id(Integer id) {
+        this.id = id;
     }
 
     public String getCountry() {
