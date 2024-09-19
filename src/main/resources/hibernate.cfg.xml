@@ -15,6 +15,6 @@
         <property name="show_sql">true</property>
         <property name="highlight_sql">true</property>
         <property name="hbm2ddl.auto">update</property>
-        <mapping class="ru.javarush.vasilev.Entity.Actor"/>
+        <mapping class="ru.javarush.vasilev.domain.Actor"/>
     </session-factory>
 </hibernate-configuration>

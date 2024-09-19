@@ -1,28 +1,33 @@
-package ru.javarush.vasilev.Entity;
+package ru.javarush.vasilev.domain;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Type;
 
 import java.math.BigDecimal;
 import java.sql.Timestamp;
+import java.time.Year;
 import java.util.Date;
-import java.util.Set;
 
 @Entity
 @Table(name = "film", schema = "movie")
 public class Film {
     @Id
+    @Column(name = "film_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String title;
+
+    @Column(columnDefinition = "text")
+    @Type(type = "text")
     private String descriptor;
 
-    @Basic
     @Column(name = "release_year", nullable = false)
-    private Date releaseYear;
+    private Year year;
 
     @ManyToOne
     @JoinColumn(name = "language_id")
-    private Language languageId;
+    private Language language;
 
     @ManyToOne
     @JoinTable(name = "original_language_id")

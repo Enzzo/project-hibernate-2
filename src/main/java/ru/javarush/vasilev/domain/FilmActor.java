@@ -1,4 +1,4 @@
-package ru.javarush.vasilev.Entity;
+package ru.javarush.vasilev.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

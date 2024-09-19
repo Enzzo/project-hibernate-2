@@ -1,4 +1,4 @@
-package ru.javarush.vasilev.Entity;
+package ru.javarush.vasilev.domain;
 
 public enum Rating {
     g ("g"),

@@ -1,17 +1,18 @@
-package ru.javarush.vasilev.Entity;
+package ru.javarush.vasilev.domain;
 
 import jakarta.persistence.*;
 
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "language", schema = "movie")
-public class Language {
+@Table(name = "category", schema = "movie")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id", nullable = false)
     private Integer id;
 
-    @Column(name = "name", length = 20, nullable = false)
+    @Column(name = "name", length = 255, nullable = false)
     private String name;
 
     @Column(name = "last_update", nullable = false)

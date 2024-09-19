@@ -3,7 +3,6 @@ package ru.javarush.vasilev;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import ru.javarush.vasilev.Entity.Rating;
 
 /**
  * Hello world!
