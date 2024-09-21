@@ -1,15 +1,19 @@
 package ru.javarush.vasilev.domain;
 
 public enum Rating {
-    g ("g"),
-    pg("pg"),
-    pg13("pg-13"),
-    r("r"),
-    nc17("nc-17");
+    G ("G"),
+    PG("PG"),
+    PG13("PG-13"),
+    R("R"),
+    NC17("NC-17");
 
-    private String rating;
+    private String value;
 
-    Rating(String rating) {
-        this.rating = rating;
+    Rating(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
     }
 }

@@ -1,8 +1,11 @@
 package ru.javarush.vasilev.domain;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Table(name = "actor", schema = "movie")
@@ -10,7 +13,7 @@ public class Actor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "actor_id", nullable = false)
-    private Integer id;
+    private Short id;
 
     @Column(name = "first_name", length = 45, nullable = false)
     private String firstName;
@@ -19,13 +22,21 @@ public class Actor {
     private String lastName;
 
     @Column(name = "last_update", nullable = false)
-    private Timestamp lastUpdate;
+    @UpdateTimestamp
+    private LocalDateTime lastUpdate;
 
-    public Integer getId() {
+    @ManyToMany
+    @JoinTable(name = "film_actor",
+        joinColumns = @JoinColumn(name = "actor_id", referencedColumnName = "actor_id"),
+        inverseJoinColumns = @JoinColumn(name = "film_id", referencedColumnName = "film_id")
+    )
+    private Set<Film> films;
+
+    public Short getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Short id) {
         this.id = id;
     }
 
@@ -45,11 +56,19 @@ public class Actor {
         this.lastName = lastName;
     }
 
-    public Timestamp getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Timestamp lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
+    }
+
+    public Set<Film> getFilms() {
+        return films;
+    }
+
+    public void setFilms(Set<Film> films) {
+        this.films = films;
     }
 }

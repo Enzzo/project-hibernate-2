@@ -1,8 +1,7 @@
 package ru.javarush.vasilev.domain;
 
 import jakarta.persistence.*;
-
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "language", schema = "movie")
@@ -10,19 +9,19 @@ public class Language {
     @Id
     @Column(name = "language_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Byte id;
 
-    @Column(name = "name", length = 20, nullable = false)
+    @Column(name = "name", length = 20, columnDefinition = "char", nullable = false)
     private String name;
 
     @Column(name = "last_update", nullable = false)
-    private Timestamp lastUpdate;
+    private LocalDateTime lastUpdate;
 
-    public Integer getId() {
+    public Byte getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Byte id) {
         this.id = id;
     }
 
@@ -34,11 +33,11 @@ public class Language {
         this.name = name;
     }
 
-    public Timestamp getLastUpdate() {
+    public LocalDateTime getLastUpdate() {
         return lastUpdate;
     }
 
-    public void setLastUpdate(Timestamp lastUpdate) {
+    public void setLastUpdate(LocalDateTime lastUpdate) {
         this.lastUpdate = lastUpdate;
     }
 }
